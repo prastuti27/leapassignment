@@ -1,0 +1,14 @@
+.btn {
+  border-radius: 8px;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  background-color: transparentize($white, 0.9);
+  //   default button is medium sized
+  padding: 16px 32px;
+  //   small sized button
+  &.small {
+    padding: 12px 24px;
+    line-height: 20px;
+  }
+}
