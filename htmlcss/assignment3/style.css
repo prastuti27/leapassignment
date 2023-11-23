@@ -326,6 +326,11 @@ button {
   appearance: none;
 }
 
+.topcontainer {
+  background-color: #5d55ff;
+  padding: 0 80px;
+}
+
 .container {
   padding: 0 px;
 }
@@ -334,9 +339,10 @@ button {
     padding: 0 36px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1400px) {
   .container {
     padding: 0 42px;
+    max-width: 1400px;
     margin: 0 auto;
   }
 }
@@ -353,11 +359,23 @@ button {
   padding: 12px 24px;
   line-height: 20px;
 }
+.btn.big {
+  background-color: #ffffff;
+  color: #1d1c31;
+}
+.btn.medium {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-left: 20px;
+}
+
+.selector {
+  justify-content: space-between;
+}
 
 .header {
   background-color: #5d55ff;
   display: flex;
-  padding: 0 100px;
   align-items: center;
   justify-content: space-between;
 }
@@ -377,6 +395,67 @@ button {
 .banner {
   background-color: #5d55ff;
   display: flex;
+  margin-top: 40px;
+  color: #ffffff;
+}
+.banner__content {
+  width: 48%;
+}
+.banner__content__rating {
+  display: flex;
+  gap: 20px;
+}
+.banner__content__title {
+  color: #ffffff;
+  font-size: 56px;
+  line-height: 1.15;
+}
+.banner__mobile {
+  position: relative;
+}
+.banner__mobile__master {
+  position: absolute;
+  top: 28%;
+  left: 75%;
+}
+@media only screen and (max-width: 565px) {
+  .banner {
+    flex-direction: column;
+  }
+  .banner__mobile {
+    margin-left: 30px;
+  }
+  .banner__mobile__iphone {
+    position: absolute;
+  }
+}
+
+.label {
+  background-color: #5d55ff;
+  line-height: 0;
+}
+
+.bmi {
+  width: 100%;
+}
+
+.footer {
+  background-color: rgba(93, 85, 255, 0.1);
+  padding: 0 80px;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+.footer__left {
+  width: 50%;
+  border-radius: 8px;
+  background-color: #1d1c31;
+  box-shadow: 0px 0px 30px 2px rgba(93, 85, 255, 0.1) inset;
+}
+.footer__right {
+  color: #1d1c31;
+  display: flex;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=style.css.map */

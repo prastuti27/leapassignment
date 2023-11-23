@@ -11,4 +11,17 @@
     padding: 12px 24px;
     line-height: 20px;
   }
+  &.big {
+    background-color: $white;
+    color: $black;
+  }
+  &.medium {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    margin-left: 20px;
+  }
+}
+.selector {
+  justify-content: space-between;
 }

@@ -1,4 +1,45 @@
 .banner {
   background-color: $primary-color;
   display: flex;
+  margin-top: 40px;
+  color: $white;
+  &__content {
+    width: 48%;
+    &__rating {
+      display: flex;
+      gap: 20px;
+    }
+
+    &__title {
+      color: $white;
+      font-size: 56px;
+      line-height: 1.15;
+    }
+  }
+  &__mobile {
+    position: relative;
+    &__iphone {
+    }
+    &__master {
+      position: absolute;
+      top: 28%;
+      left: 75%;
+    }
+  }
+  @media only screen and (max-width: 565px) {
+    flex-direction: column;
+    &__mobile {
+      margin-left: 30px;
+      &__iphone {
+        position: absolute;
+      }
+    }
+  }
+}
+.label {
+  background-color: $primary-color;
+  line-height: 0;
+}
+.bmi {
+  width: 100%;
 }
