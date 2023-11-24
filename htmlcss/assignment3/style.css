@@ -331,20 +331,12 @@ button {
   padding: 0 80px;
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   padding: 0 px;
-}
-@media screen and (min-width: 768px) {
-  .container {
-    padding: 0 36px;
-  }
-}
-@media screen and (min-width: 1400px) {
-  .container {
-    padding: 0 42px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
 }
 
 .btn {
@@ -388,6 +380,11 @@ button {
   gap: 32px;
   align-items: center;
 }
+@media only screen and (min-width: 565px) {
+  .header__nav {
+    display: none;
+  }
+}
 .header__nav--item {
   color: #ffffff;
 }
@@ -399,7 +396,7 @@ button {
   color: #ffffff;
 }
 .banner__content {
-  width: 48%;
+  width: 50%;
 }
 .banner__content__rating {
   display: flex;
@@ -412,13 +409,14 @@ button {
 }
 .banner__mobile {
   position: relative;
+  width: 50%;
 }
 .banner__mobile__master {
   position: absolute;
   top: 28%;
   left: 75%;
 }
-@media only screen and (max-width: 565px) {
+@media only screen and (min-width: 565px) {
   .banner {
     flex-direction: column;
   }
@@ -427,6 +425,11 @@ button {
   }
   .banner__mobile__iphone {
     position: absolute;
+  }
+  .banner__mobile__master {
+    position: relative;
+    top: 8%;
+    left: 75%;
   }
 }
 
@@ -441,21 +444,156 @@ button {
 
 .footer {
   background-color: rgba(93, 85, 255, 0.1);
-  padding: 0 80px;
+  padding: 20px 80px 20px 80px;
   color: #ffffff;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .footer__left {
-  width: 50%;
+  width: 48%;
+  padding: 30px;
   border-radius: 8px;
   background-color: #1d1c31;
   box-shadow: 0px 0px 30px 2px rgba(93, 85, 255, 0.1) inset;
 }
+.footer__left h2 {
+  margin: 0px;
+}
 .footer__right {
   color: #1d1c31;
   display: flex;
-  justify-content: space-between;
+  gap: 80px;
+}
+
+input {
+  background-color: #1d1c31;
+  color: white;
+  border: 0px;
+  padding: 20px;
+  width: 50%;
+  border-bottom: 1px solid white;
+}
+
+.email {
+  display: flex;
+  gap: 100px;
+}
+
+.spaced-list li {
+  margin-bottom: 10px;
+}
+
+.main {
+  padding: 0 100px;
+  color: #1d1c31;
+}
+.main__cards {
+  display: flex;
+  gap: 50px;
+  text-align: center;
+}
+.main__cards__card {
+  width: 350px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+.main__cards__card p {
+  color: grey;
+}
+.main__cards__card i.ph {
+  font-size: 60px;
+  margin-top: 20px;
+}
+.main__cards__card i.ph.ph-bank {
+  color: #5d55ff;
+}
+.main__cards__card i.ph-arrow-right {
+  font-size: 20px;
+}
+.main__cards__card .readmore {
+  display: flex;
+  justify-content: flex-end;
+}
+.main__figure {
+  position: relative;
+  margin-top: 70px;
+}
+.main__figure__fix {
+  width: 80%;
+  position: relative;
+}
+.main__purplecard .maryjane {
+  padding: 20px;
+}
+.main__purplecard .maryjane span {
+  display: block;
+}
+.main__purplecard__cards {
+  display: flex;
+  gap: 30px;
+}
+
+.figure {
+  position: relative;
+  width: 100%;
+}
+
+.googleplay {
+  position: absolute;
+  background-color: white;
+  padding: 40px;
+  width: 43%;
+  top: 18%;
+  left: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.googleplay h1 {
+  margin: 0px;
+  line-height: 1.25;
+}
+
+.banking_service {
+  outline: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 8px;
+  padding: 20px;
+}
+.banking_service p {
+  border-bottom: 1px solid rgba(29, 28, 49, 0.1);
+  padding-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.banking {
+  border-radius: 8px;
+  background-color: #5d55ff;
+  color: white;
+  padding: 20px;
+}
+.banking p {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+.identity {
+  display: flex;
+}
+
+.section {
+  padding: 0 100px;
+  margin-top: 50px;
+  color: #ffffff;
+  background-color: #5d55ff;
+}
+.section__guideline1 {
+  display: flex;
+}
+.section .headline {
+  color: white;
+}
+.section .equalwidth {
+  display: flex;
+  width: 50%;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /*# sourceMappingURL=style.css.map */

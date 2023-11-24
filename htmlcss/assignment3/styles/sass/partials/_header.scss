@@ -13,6 +13,9 @@
     list-style-type: none;
     gap: 32px;
     align-items: center;
+    @media only screen and (min-width: 565px) {
+      display: none;
+    }
   }
   &__nav--item {
     color: $white;

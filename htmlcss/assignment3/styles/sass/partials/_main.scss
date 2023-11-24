@@ -1,0 +1,96 @@
+.main {
+  padding: 0 100px;
+  color: $black;
+
+  &__cards {
+    display: flex;
+    gap: 50px;
+    text-align: center;
+
+    &__card {
+      width: 350px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      p {
+        color: grey;
+      }
+      i.ph {
+        font-size: 60px;
+        margin-top: 20px;
+        &.ph-bank {
+          color: $primary-color;
+        }
+      }
+      i.ph-arrow-right {
+        font-size: 20px;
+      }
+      .readmore {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+  &__figure {
+    position: relative;
+    margin-top: 70px;
+
+    &__fix {
+      width: 80%;
+      position: relative;
+    }
+  }
+  &__purplecard {
+    .maryjane {
+      padding: 20px;
+    }
+    .maryjane span {
+      display: block;
+    }
+    &__cards {
+      display: flex;
+      gap: 30px;
+    }
+  }
+}
+
+.figure {
+  position: relative;
+  width: 100%;
+}
+.googleplay {
+  position: absolute;
+  background-color: white;
+  padding: 40px;
+  width: 43%;
+  top: 18%;
+  left: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  h1 {
+    margin: 0px;
+    line-height: 1.25;
+  }
+}
+.banking_service {
+  outline: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 8px;
+  padding: 20px;
+  p {
+    border-bottom: 1px solid rgba(29, 28, 49, 0.1);
+    padding-bottom: 10px;
+    padding-bottom: 10px;
+  }
+}
+.banking {
+  border-radius: 8px;
+  background-color: $primary-color;
+  color: white;
+  padding: 20px;
+  p {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+  }
+}
+.identity {
+  display: flex;
+}
