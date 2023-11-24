@@ -1,11 +1,17 @@
 .main {
   padding: 0 100px;
   color: $black;
+  @media screen and (max-width: 565px) {
+    padding: 20px;
+  }
 
   &__cards {
     display: flex;
     gap: 50px;
     text-align: center;
+    @media screen and (max-width: 565px) {
+      display: block;
+    }
 
     &__card {
       width: 350px;
@@ -28,10 +34,6 @@
         display: flex;
         justify-content: flex-end;
       }
-
-      @media only screen and (min-width: 565px) {
-        display: block;
-      }
     }
   }
 
@@ -42,6 +44,9 @@
     &__fix {
       width: 80%;
       position: relative;
+      @media screen and (max-width: 565px) {
+        width: 100%;
+      }
     }
   }
   &__purplecard {
@@ -54,6 +59,9 @@
     &__cards {
       display: flex;
       gap: 30px;
+      @media screen and (max-width: 565px) {
+        display: block;
+      }
     }
   }
 }
@@ -70,6 +78,10 @@
   top: 18%;
   left: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  @media screen and (max-width: 565px) {
+    position: static;
+    width: auto;
+  }
 
   h1 {
     margin: 0px;

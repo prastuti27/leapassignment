@@ -330,6 +330,11 @@ button {
   background-color: #5d55ff;
   padding: 0 80px;
 }
+@media screen and (max-width: 565px) {
+  .topcontainer {
+    padding: 0px;
+  }
+}
 
 ul {
   list-style: none;
@@ -463,12 +468,22 @@ ul {
   display: flex;
   justify-content: space-around;
 }
+@media screen and (max-width: 565px) {
+  .footer {
+    display: block;
+  }
+}
 .footer__left {
   width: 48%;
   padding: 30px;
   border-radius: 8px;
   background-color: #1d1c31;
   box-shadow: 0px 0px 30px 2px rgba(93, 85, 255, 0.1) inset;
+}
+@media screen and (max-width: 565px) {
+  .footer__left {
+    width: auto;
+  }
 }
 .footer__left h2 {
   margin: 0px;
@@ -493,6 +508,11 @@ input {
   display: flex;
   gap: 100px;
 }
+@media screen and (max-width: 565px) {
+  .email {
+    display: block;
+  }
+}
 
 .spaced-list li {
   margin-bottom: 10px;
@@ -511,10 +531,20 @@ input {
   padding: 0 100px;
   color: #1d1c31;
 }
+@media screen and (max-width: 565px) {
+  .main {
+    padding: 20px;
+  }
+}
 .main__cards {
   display: flex;
   gap: 50px;
   text-align: center;
+}
+@media screen and (max-width: 565px) {
+  .main__cards {
+    display: block;
+  }
 }
 .main__cards__card {
   width: 350px;
@@ -538,11 +568,6 @@ input {
   display: flex;
   justify-content: flex-end;
 }
-@media only screen and (min-width: 565px) {
-  .main__cards__card {
-    display: block;
-  }
-}
 .main__figure {
   position: relative;
   margin-top: 70px;
@@ -550,6 +575,11 @@ input {
 .main__figure__fix {
   width: 80%;
   position: relative;
+}
+@media screen and (max-width: 565px) {
+  .main__figure__fix {
+    width: 100%;
+  }
 }
 .main__purplecard .maryjane {
   padding: 20px;
@@ -560,6 +590,11 @@ input {
 .main__purplecard__cards {
   display: flex;
   gap: 30px;
+}
+@media screen and (max-width: 565px) {
+  .main__purplecard__cards {
+    display: block;
+  }
 }
 
 .figure {
@@ -575,6 +610,12 @@ input {
   top: 18%;
   left: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+@media screen and (max-width: 565px) {
+  .googleplay {
+    position: static;
+    width: auto;
+  }
 }
 .googleplay h1 {
   margin: 0px;
@@ -623,6 +664,11 @@ input {
   font-size: 16px;
   gap: 30%;
 }
+@media screen and (max-width: 565px) {
+  .section__guideline2 {
+    display: block;
+  }
+}
 .section__guideline2__card {
   padding: 20px;
   display: flex;
@@ -635,6 +681,11 @@ input {
   font-weight: 400;
   font-size: 16px;
   gap: 40%;
+}
+@media screen and (max-width: 565px) {
+  .section__guideline3 {
+    display: block;
+  }
 }
 .section__guideline3__card {
   padding: 20px;
@@ -649,6 +700,11 @@ input {
   display: flex;
   width: 50%;
   color: rgba(255, 255, 255, 0.6);
+}
+@media screen and (max-width: 565px) {
+  .section .equalwidth p {
+    display: none;
+  }
 }
 .section .sec {
   padding-top: 0px;

@@ -18,6 +18,9 @@ button {
 .topcontainer {
   background-color: $primary-color;
   padding: 0 80px;
+  @media screen and (max-width: 565px) {
+    padding: 0px;
+  }
 }
 
 ul {

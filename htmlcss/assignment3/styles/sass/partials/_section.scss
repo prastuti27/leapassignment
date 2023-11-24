@@ -12,6 +12,9 @@
     margin-top: 40px;
     font-size: 16px;
     gap: 30%;
+    @media screen and (max-width: 565px) {
+      display: block;
+    }
     &__card {
       padding: 20px;
       display: flex;
@@ -26,6 +29,9 @@
     font-weight: 400;
     font-size: 16px;
     gap: 40%;
+    @media screen and (max-width: 565px) {
+      display: block;
+    }
     &__card {
       padding: 20px;
       margin-bottom: 40px;
@@ -40,6 +46,11 @@
     display: flex;
     width: 50%;
     color: rgba(255, 255, 255, 0.6);
+    p {
+      @media screen and (max-width: 565px) {
+        display: none;
+      }
+    }
   }
   .sec {
     padding-top: 0px;
