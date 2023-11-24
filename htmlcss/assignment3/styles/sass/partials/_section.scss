@@ -6,6 +6,33 @@
   &__guideline1 {
     display: flex;
   }
+  &__guideline2 {
+    display: flex;
+    font-weight: 400;
+    margin-top: 40px;
+    font-size: 16px;
+    gap: 30%;
+    &__card {
+      padding: 20px;
+      display: flex;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+  &__guideline3 {
+    margin-top: 40px;
+
+    margin-left: 200px;
+    display: flex;
+    font-weight: 400;
+    font-size: 16px;
+    gap: 40%;
+    &__card {
+      padding: 20px;
+      margin-bottom: 40px;
+      display: flex;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+  }
   .headline {
     color: white;
   }
@@ -13,5 +40,8 @@
     display: flex;
     width: 50%;
     color: rgba(255, 255, 255, 0.6);
+  }
+  .sec {
+    padding-top: 0px;
   }
 }

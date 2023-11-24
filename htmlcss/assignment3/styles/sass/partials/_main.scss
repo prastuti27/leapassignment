@@ -28,8 +28,13 @@
         display: flex;
         justify-content: flex-end;
       }
+
+      @media only screen and (min-width: 565px) {
+        display: block;
+      }
     }
   }
+
   &__figure {
     position: relative;
     margin-top: 70px;

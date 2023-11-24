@@ -336,7 +336,14 @@ ul {
 }
 
 .container {
-  padding: 0 px;
+  max-width: 1408px;
+  margin: auto;
+  padding: 0 36px;
+}
+@media screen and (min-width: 1024px) {
+  .container .container {
+    padding: 0 px;
+  }
 }
 
 .btn {
@@ -380,18 +387,21 @@ ul {
   gap: 32px;
   align-items: center;
 }
-@media only screen and (min-width: 565px) {
-  .header__nav {
-    display: none;
-  }
-}
 .header__nav--item {
   color: #ffffff;
+  display: none;
+}
+@media only screen and (min-width: 760px) {
+  .header__nav--item {
+    display: block;
+  }
 }
 
 .banner {
   background-color: #5d55ff;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-top: 40px;
   color: #ffffff;
 }
@@ -408,28 +418,32 @@ ul {
   line-height: 1.15;
 }
 .banner__mobile {
-  position: relative;
   width: 50%;
+  align-self: center;
+  text-align: center;
+  position: relative;
+}
+.banner__mobile__img--wrapper {
+  position: relative;
+}
+.banner__mobile img {
+  max-width: 258px;
+  width: 100%;
 }
 .banner__mobile__master {
   position: absolute;
-  top: 28%;
-  left: 75%;
+  bottom: 5%;
+  right: 50%;
+}
+@media screen and (min-width: 565px) {
+  .banner__mobile__master {
+    right: 5%;
+    top: 28%;
+  }
 }
 @media only screen and (min-width: 565px) {
   .banner {
-    flex-direction: column;
-  }
-  .banner__mobile {
-    margin-left: 30px;
-  }
-  .banner__mobile__iphone {
-    position: absolute;
-  }
-  .banner__mobile__master {
-    position: relative;
-    top: 8%;
-    left: 75%;
+    flex-direction: row;
   }
 }
 
@@ -444,7 +458,7 @@ ul {
 
 .footer {
   background-color: rgba(93, 85, 255, 0.1);
-  padding: 20px 80px 20px 80px;
+  padding: 20px 60px 20px 60px;
   color: #ffffff;
   display: flex;
   justify-content: space-around;
@@ -463,6 +477,7 @@ ul {
   color: #1d1c31;
   display: flex;
   gap: 80px;
+  margin-top: 40px;
 }
 
 input {
@@ -481,6 +496,15 @@ input {
 
 .spaced-list li {
   margin-bottom: 10px;
+}
+
+.footer-bottom {
+  padding: 20px 60px 20px 60px;
+  display: flex;
+  gap: 34%;
+  background-color: rgba(93, 85, 255, 0.1);
+  color: rgba(29, 28, 49, 0.6);
+  border-top: 1px solid rgba(29, 28, 49, 0.1);
 }
 
 .main {
@@ -513,6 +537,11 @@ input {
 .main__cards__card .readmore {
   display: flex;
   justify-content: flex-end;
+}
+@media only screen and (min-width: 565px) {
+  .main__cards__card {
+    display: block;
+  }
 }
 .main__figure {
   position: relative;
@@ -587,6 +616,32 @@ input {
 .section__guideline1 {
   display: flex;
 }
+.section__guideline2 {
+  display: flex;
+  font-weight: 400;
+  margin-top: 40px;
+  font-size: 16px;
+  gap: 30%;
+}
+.section__guideline2__card {
+  padding: 20px;
+  display: flex;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+.section__guideline3 {
+  margin-top: 40px;
+  margin-left: 200px;
+  display: flex;
+  font-weight: 400;
+  font-size: 16px;
+  gap: 40%;
+}
+.section__guideline3__card {
+  padding: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
 .section .headline {
   color: white;
 }
@@ -594,6 +649,9 @@ input {
   display: flex;
   width: 50%;
   color: rgba(255, 255, 255, 0.6);
+}
+.section .sec {
+  padding-top: 0px;
 }
 
 /*# sourceMappingURL=style.css.map */
