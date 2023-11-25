@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  line-height: normal;
+  color: $body-text-color;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+
+button {
+  appearance: none;
+}
+
+ul {
+  list-style: none;
+}
+.topcontainer {
+  background-image: url("../../assets/img/purple_background.png");
+
+  padding: 0 40px;
+}
+p {
+  color: rgba(255, 255, 255, 0.7);
+}
+span {
+  color: $secondary-color;
+}
+h1 {
+  color: $white;
+}

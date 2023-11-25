@@ -1,0 +1,17 @@
+// @media screen and (max-width: 767px) {
+//   .header__nav {
+//     display: none;
+//   }
+//   .hamburger-menu {
+//     display: flex;
+//   }
+// }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .header__nav {
+    display: none;
+  }
+  .hamburger-menu {
+    display: flex;
+  }
+}

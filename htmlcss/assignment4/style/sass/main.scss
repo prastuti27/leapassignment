@@ -1,0 +1,63 @@
+// browser resets
+@import "partials/reset";
+
+// base things
+@import "partials/variables";
+@import "partials/base";
+// @import "partials/header";
+@import "partials/button";
+@import "partials/utils";
+// @import "partials/banner";
+@import "partials/mixins";
+.banner {
+  display: flex;
+  border: none;
+  margin-top: 20px;
+  &__left {
+    margin-top: 20px;
+  }
+  @media screen and (max-width: 767px) {
+    @include d-flex(space-between, column);
+  }
+  // @media screen and (max-width: 1020px) {
+  //   display: none;
+  // }
+}
+.header {
+  @include d-flex(space-between, row);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__logo {
+    margin: 0;
+  }
+  &__nav {
+    display: flex;
+    list-style-type: none;
+    gap: 32px;
+    align-items: center;
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+    @media screen and (max-width: 1020px) {
+      display: none;
+    }
+
+    &--item {
+      color: rgba(255, 255, 255, 0.5);
+      &:hover {
+        text-decoration-color: transparent;
+        color: white;
+      }
+    }
+  }
+}
+.hamburger-menu {
+  display: none;
+  @media screen and (max-width: 767px) {
+    display: flex;
+  }
+  @media screen and (max-width: 1020px) {
+    display: flex;
+  }
+}
