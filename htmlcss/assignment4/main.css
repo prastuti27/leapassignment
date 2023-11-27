@@ -664,7 +664,7 @@ h4 {
   padding: 40px;
 }
 .section__img--medicine {
-  background-image: url("htmlcss/assignment4/assets/img/inject.png");
+  background-image: url("./assets/img/inject.png");
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
@@ -711,7 +711,7 @@ h4 {
   color: #fff;
 }
 .prevention__headache {
-  background-image: url("htmlcss/assignment4/assets/img/headache.png");
+  background-image: url("./assets/img/headache.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -743,7 +743,7 @@ h4 {
 }
 
 .medicine {
-  background-image: url("htmlcss/assgnment4/assets/img/white_background.png");
+  background-image: url("./assets/img/white_background.png");
 }
 .medicine__feedback {
   text-align: center;
