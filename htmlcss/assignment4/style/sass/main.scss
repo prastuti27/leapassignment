@@ -13,20 +13,65 @@
   display: flex;
   border: none;
   margin-top: 20px;
+
   &__left {
     margin-top: 20px;
+    width: 100%;
+    max-width: 100%;
+    &--buttons {
+      max-width: 100%;
+      @media only screen and (max-width: 575px) {
+        @include d-flex(space-between, row);
+      }
+    }
   }
-  @media screen and (max-width: 767px) {
-    @include d-flex(space-between, column);
+  &__right {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 100%;
+    img {
+      max-width: 100%;
+    }
   }
-  // @media screen and (max-width: 1020px) {
-  //   display: none;
-  // }
+  &__footer {
+    @include d-flex(space-between, row);
+    display: flex;
+    width: 40%;
+    &.btn {
+      height: 20px;
+    }
+  }
+
+  &__bottom {
+    @include d-flex(space-between, row);
+    border-radius: 20px 20px 0px 0px;
+    background: rgba(196, 196, 196, 0.05);
+    padding: 20px;
+    margin-top: 20px;
+    &--item {
+      gap: 5px;
+      display: flex;
+      p span {
+        display: block;
+      }
+      &.btn {
+        height: 20px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 575px) {
+    display: block;
+  }
+  @media only screen and (max-width: 1024px) {
+    display: block;
+  }
 }
 .header {
   @include d-flex(space-between, row);
   display: flex;
   align-items: center;
+  padding-top: 20px;
   justify-content: space-between;
   &__logo {
     margin: 0;
@@ -36,10 +81,11 @@
     list-style-type: none;
     gap: 32px;
     align-items: center;
-    @media screen and (max-width: 767px) {
+    @media only screen and (max-width: 575px) {
       display: none;
+      margin-top: 10px;
     }
-    @media screen and (max-width: 1020px) {
+    @media only screen and (max-width: 1024px) {
       display: none;
     }
 
@@ -54,10 +100,254 @@
 }
 .hamburger-menu {
   display: none;
-  @media screen and (max-width: 767px) {
+  @media only screen and (max-width: 575px) {
     display: flex;
   }
-  @media screen and (max-width: 1020px) {
+  @media only screen and (max-width: 1024px) {
     display: flex;
   }
+}
+.label {
+  @include d-flex(space-between, row);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+}
+.database {
+  background-image: url("/htmlcss/assignment4/assets/img/purple_background.png");
+  padding: 40px;
+  &__form {
+    border-radius: 20px;
+    background: rgba(196, 196, 196, 0.1);
+    &--section {
+      padding: 5px 50px;
+      @include d-flex(space-between, row);
+      display: flex;
+      input {
+        width: 30%;
+      }
+      &.one {
+        border-radius: 20px 20px 0px 0px;
+        background: rgba(196, 196, 196, 0.05);
+      }
+      &.two {
+        padding: 20px;
+      }
+    }
+  }
+}
+.footer {
+  padding: 30px;
+  background-image: url("/htmlcss/assignment4/assets/img/purple_background.png");
+  @include d-flex(space-between, row);
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  justify-content: space-between;
+  &__logo {
+    margin: 0;
+  }
+  &__nav {
+    display: flex;
+    list-style-type: none;
+    gap: 32px;
+    align-items: center;
+  }
+  &__icons {
+    font-size: 35px;
+    color: $white;
+  }
+}
+
+.reason {
+  background-image: url("/htmlcss/assignment4/assets/img/purple_background.png");
+  background-repeat: no-repeat;
+  &__headline {
+    @include d-flex(space-between, row);
+    display: flex;
+
+    &--one {
+      width: 50%;
+      padding: 50px;
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+  &__cards {
+    @include d-flex(space-between, row);
+    display: flex;
+    padding: 40px;
+    gap: 3%;
+    &--item1 {
+      width: 40%;
+      border-radius: 49.896px 149.688px 49.896px 49.896px;
+      background: rgba(196, 196, 196, 0.2);
+
+      border: 2.994px solid rgba(255, 255, 255, 0.5);
+      padding: 20px;
+      .shield {
+        margin-bottom: 20px;
+      }
+      .ph-shield {
+        font-size: 60px;
+        color: $secondary-color;
+      }
+      span {
+        margin-top: 20px;
+      }
+    }
+
+    &--item {
+      width: 30%;
+      border-radius: 49.896px;
+      border: 2.994px solid rgba(255, 255, 255, 0.5);
+
+      padding: 20px;
+      p {
+        color: $white;
+      }
+      a {
+        color: grey;
+      }
+    }
+  }
+}
+.section {
+  @include d-flex(space-between, row);
+  display: flex;
+  gap: 150px;
+  background-image: url("/htmlcss/assignment4/assets/img/white_background.png");
+  &__img {
+    width: 50%;
+
+    padding: 40px;
+    &--medicine {
+      background-image: url("htmlcss/assignment4/assets/img/inject.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+      @include d-flex(space-between, column);
+      gap: 250px;
+      background-color: $primary-color;
+      display: flex;
+      button {
+        margin: 50px;
+      }
+    }
+  }
+  &__form {
+    @include d-flex(space-between, column);
+    display: flex;
+    padding: 40px;
+    width: 50%;
+    color: $black;
+    h1 {
+      color: $black;
+    }
+    p {
+      color: rgba(0, 0, 0, 0.5);
+    }
+    .verify {
+      @include d-flex(space-between, row);
+      display: flex;
+    }
+    button {
+      margin-top: 10px;
+    }
+  }
+}
+.prevention {
+  text-align: center;
+  padding: 20px;
+  .covid {
+    color: $white;
+  }
+  &__headache {
+    background-image: url("htmlcss/assignment4/assets/img/headache.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    span {
+      color: $secondary-color;
+      .btn {
+        border-radius: 10px;
+      }
+    }
+    &--round1 {
+      @include d-flex(space-evenly, row);
+      margin-bottom: 20px;
+    }
+    &--round2 {
+      @include d-flex(space-between, row);
+      margin-bottom: 20px;
+      padding: 60px;
+    }
+    &--round3 {
+      @include d-flex(space-between, row);
+      padding: 20px;
+    }
+  }
+}
+.medicine {
+  background-image: url("htmlcss/assgnment4/assets/img/white_background.png");
+  &__feedback {
+    text-align: center;
+    span {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 48px;
+
+      font-weight: 800;
+    }
+    p {
+      font-weight: 400;
+      font-size: 18px;
+    }
+  }
+
+  .medicine1 {
+    padding: 20px;
+    gap: 50px;
+    @include d-flex(space-between, row);
+
+    &__covid {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(196, 196, 196, 0.5);
+
+      &.blue {
+        background-color: $secondary-color;
+
+        h2 {
+          color: $white;
+          font-size: 24px;
+          font-weight: 700;
+        }
+        p {
+          color: $white;
+          font-size: 18px;
+          font-weight: 500;
+        }
+        span {
+          font-size: 24px;
+          font-weight: 700;
+        }
+      }
+      &--card {
+        @include d-flex(space-between, row);
+        display: flex;
+        padding: 20px;
+        gap: 20px;
+      }
+    }
+  }
+}
+.iconics {
+  color: $white;
+  height: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(196, 196, 196, 0.1);
 }

@@ -11,7 +11,8 @@ $secondary-color: #17c2ec;
 $black: #1d1c31;
 $body-text-color: transparentize($black, 0.6);
 $white: #fff;
-$link-color: $black;
+$teritiary-color: rgba(255, 255, 255, 0.7);
+$link-color: $teritiary-color;
 
 // spacings
 $title-margin-bottom: 40px;

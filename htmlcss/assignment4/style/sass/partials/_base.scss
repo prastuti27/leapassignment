@@ -5,6 +5,7 @@ body {
   font-size: 20px;
   line-height: normal;
   color: $body-text-color;
+  background-color: $primary-color;
 }
 
 a {
@@ -20,7 +21,7 @@ ul {
   list-style: none;
 }
 .topcontainer {
-  background-image: url("../../assets/img/purple_background.png");
+  background-image: url("../../../assets/img/purple_background.png");
 
   padding: 0 40px;
 }
@@ -32,4 +33,10 @@ span {
 }
 h1 {
   color: $white;
+}
+img {
+  max-width: 100;
+}
+h4 {
+  color: white;
 }
