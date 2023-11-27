@@ -222,7 +222,7 @@
 
     padding: 40px;
     &--medicine {
-      background-image: url("htmlcss/assignment4/assets/img/inject.png");
+      background-image: url("/htmlcss/assignment4/assets/img/inject.png");
       background-repeat: no-repeat;
       background-size: cover;
       text-align: center;
@@ -263,7 +263,7 @@
     color: $white;
   }
   &__headache {
-    background-image: url("htmlcss/assignment4/assets/img/headache.png");
+    background-image: url("/htmlcss/assignment4/assets/img/headache.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -289,7 +289,7 @@
   }
 }
 .medicine {
-  background-image: url("htmlcss/assgnment4/assets/img/white_background.png");
+  background-image: url("/htmlcss/assgnment4/assets/img/white_background.png");
   &__feedback {
     text-align: center;
     span {
