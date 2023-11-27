@@ -332,7 +332,7 @@ ul {
 }
 
 .topcontainer {
-  background-image: url("../../../assets/img/purple_background.png");
+  background-image: url("./assets/img/purple_background.png");
   padding: 0 40px;
 }
 
@@ -546,7 +546,7 @@ h4 {
 }
 
 .database {
-  background-image: url("/htmlcss/assignment4/assets/img/purple_background.png");
+  background-image: url("./assets/img/purple_background.png");
   padding: 40px;
 }
 .database__form {
@@ -573,7 +573,7 @@ h4 {
 
 .footer {
   padding: 30px;
-  background-image: url("/htmlcss/assignment4/assets/img/purple_background.png");
+  background-image: url("./assets/img/purple_background.png");
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -597,7 +597,7 @@ h4 {
 }
 
 .reason {
-  background-image: url("/htmlcss/assignment4/assets/img/purple_background.png");
+  background-image: url("./assets/img/purple_background.png");
   background-repeat: no-repeat;
 }
 .reason__headline {
@@ -657,7 +657,7 @@ h4 {
   justify-content: space-between;
   display: flex;
   gap: 150px;
-  background-image: url("/htmlcss/assignment4/assets/img/white_background.png");
+  background-image: url("./assets/img/white_background.png");
 }
 .section__img {
   width: 50%;
