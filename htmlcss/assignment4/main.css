@@ -313,7 +313,6 @@ template {
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
-  line-height: normal;
   color: rgba(29, 28, 49, 0.4);
   background-color: #0b153c;
 }
@@ -332,7 +331,7 @@ ul {
 }
 
 .topcontainer {
-  background-image: url("./assets/img/purple_background.png");
+  background-image: url("../../../assets/img/purple_background.png");
   padding: 0 40px;
 }
 
@@ -451,7 +450,7 @@ h4 {
   flex-direction: row;
   justify-content: space-between;
   display: flex;
-  width: 40%;
+  width: 30%;
 }
 .banner__footer.btn {
   height: 20px;
@@ -471,9 +470,6 @@ h4 {
 }
 .banner__bottom--item p span {
   display: block;
-}
-.banner__bottom--item.btn {
-  height: 20px;
 }
 @media only screen and (max-width: 575px) {
   .banner {
@@ -623,6 +619,7 @@ h4 {
 }
 .reason__cards--item1 {
   width: 40%;
+  height: 60%;
   border-radius: 49.896px 149.688px 49.896px 49.896px;
   background: rgba(196, 196, 196, 0.2);
   border: 2.994px solid rgba(255, 255, 255, 0.5);
@@ -638,16 +635,16 @@ h4 {
 .reason__cards--item1 span {
   margin-top: 20px;
 }
-.reason__cards--item {
+.reason__cards__item {
   width: 30%;
   border-radius: 49.896px;
   border: 2.994px solid rgba(255, 255, 255, 0.5);
   padding: 20px;
 }
-.reason__cards--item p {
+.reason__cards__item p {
   color: #fff;
 }
-.reason__cards--item a {
+.reason__cards__item a {
   color: grey;
 }
 

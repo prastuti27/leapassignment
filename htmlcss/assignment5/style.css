@@ -1,0 +1,59 @@
+body {
+  background-image: url("./cop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  max-width: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
+#root {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: white;
+  background-color: rgb(107, 101, 101);
+}
+input[type="text"]::placeholder {
+  color: #f4eded;
+}
+
+button {
+  padding: 8px 15px;
+  background-color: rgb(228, 90, 21);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0 20px;
+}
+button:hover {
+  transform: scale(1.1);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+span {
+  padding-left: 10px;
+}
+.crossed-out {
+  text-decoration: line-through;
+}
