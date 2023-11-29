@@ -1,79 +1,178 @@
-const root = document.getElementById("root");
+//variables
+var allTasks = [];
+var completed = [];
+var remaining = [];
 
-const todoInput = document.createElement("input");
-todoInput.type = "text";
-todoInput.placeholder = "Add new task";
-todoInput.id = "todoInput";
+//Adding required elements
+const header = document.getElementById("header");
 
+//label
+const label = document.createElement("label");
+label.innerText = "Task Title";
+label.setAttribute("for", "task-input");
+header.appendChild(label);
+
+//input
+const inputField = document.createElement("input");
+inputField.id = "task-input";
+inputField.setAttribute("name", "task=input");
+inputField.placeholder = "Enter your task";
+header.appendChild(inputField);
+
+//button
 const addButton = document.createElement("button");
-addButton.textContent = "Add";
-addButton.id = "addButton";
+addButton.id = "add-button";
+addButton.innerText = "Add";
 
-const todoList = document.createElement("ul");
-todoList.id = "todoList";
+//All Button
+const allButton = document.createElement("button");
+allButton.id = "all-button";
+allButton.innerText = "All Tasks";
 
-addButton.addEventListener("click", addTodoItem);
+allButton.addEventListener("click", showAllTasks);
 
-function addTodoItem() {
-  const newTodoText = todoInput.value.trim();
-  if (newTodoText) {
-    const todoItem = document.createElement("li");
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.classList.add("todo-checkbox");
+//Completed Button
+const completedButton = document.createElement("button");
+completedButton.id = "completed-button";
+completedButton.innerText = "Completed Tasks";
 
-    function toggleTodoItem() {
-      todoItem.classList.toggle("crossed-out", checkbox.checked);
-    }
+completedButton.addEventListener("click", showCompletedTasks);
 
-    checkbox.addEventListener("change", toggleTodoItem);
+//Remaining Button
+const remainingButton = document.createElement("button");
+remainingButton.id = "remaining-button";
+remainingButton.innerText = "Remaining Tasks";
+allButton;
 
-    const todoText = document.createElement("span");
-    todoText.textContent = newTodoText;
+remainingButton.addEventListener("click", showRemainingTasks);
 
-    todoItem.appendChild(checkbox);
-    todoItem.appendChild(todoText);
+header.appendChild(addButton);
 
-    todoList.appendChild(todoItem);
+// division for buttons
+const buttonDivision = document.createElement("div");
+buttonDivision.id = "division-button";
+header.appendChild(buttonDivision);
 
-    todoInput.value = "";
+buttonDivision.appendChild(remainingButton);
+buttonDivision.appendChild(completedButton);
+buttonDivision.appendChild(allButton);
+
+//adding event on Add Button
+addButton.addEventListener("click", addTask);
+
+//addTaskFunction
+
+function addTask() {
+  if (inputField.value !== "") {
+    allTasks.push(inputField.value);
+    remaining.push(inputField.value);
+  }
+  inputField.value = "";
+  showAllTasks();
+}
+
+//container element
+const container = document.getElementById("container");
+
+//Creating List Element
+const list = document.createElement("ul");
+list.setAttribute("id", "task-list");
+
+container.appendChild(list);
+
+//function to make checked
+function markCompleted(index) {
+  if (completed.includes(allTasks[index])) {
+    completed = completed.filter((task) => task !== allTasks[index]);
+    remaining.push(allTasks[index]);
+  } else {
+    completed.push(allTasks[index]);
+    remaining = remaining.filter((task) => task !== allTasks[index]);
+  }
+  const selectedTaskSpan = document.getElementById(`task-${index}-title`);
+  if (completed.includes(allTasks[index])) {
+    selectedTaskSpan.style.textDecoration = "line-through";
+  } else {
+    selectedTaskSpan.style.textDecoration = "none";
   }
 }
 
-function showRemaining() {
-  const remainingItems = document.querySelectorAll(
-    "#todoList li:not(.crossed-out)"
-  );
+//completed Section
+function showCompletedTasks() {
+  list.innerHTML = "";
+  completed.forEach((task, index) => {
+    let newList = document.createElement("li");
+    newList.setAttribute("id", `task-${index}`);
 
-  remainingItems.forEach((item) => {
-    const taskItem = document.createElement("li");
-    taskItem.textContent = item.querySelector("span").textContent;
-    todoList.appendChild(taskItem);
+    //task title
+    let newSpan = document.createElement("span");
+    newSpan.id = `task-${index}-title`;
+    newSpan.innerText = task;
+    newSpan.style.textDecoration = "line-through";
+
+    //button
+    let button = document.createElement("button");
+    button.id = `btn-${index}`;
+    button.innerText = "Mark Done";
+
+    newList.appendChild(newSpan);
+    newList.appendChild(button);
+    button.addEventListener("click", (e) => markCompleted(index));
+
+    list.appendChild(newList);
   });
 }
 
-function showCompleted() {
-  const completedItems = document.querySelectorAll("#todoList li.crossed-out");
+//Remaining Section
+function showRemainingTasks() {
+  list.innerHTML = "";
+  console.log(remaining);
+  remaining.forEach((task, index) => {
+    let newList = document.createElement("li");
+    newList.setAttribute("id", `task-${index}`);
 
-  completedItems.forEach((item) => {
-    const taskItem = document.createElement("li");
-    taskItem.textContent = item.querySelector("span").textContent;
-    todoList.appendChild(taskItem);
+    //task title
+    let newSpan = document.createElement("span");
+    newSpan.id = `task-${index}-title`;
+    newSpan.innerText = task;
+
+    //button
+    let button = document.createElement("button");
+    button.id = `btn-${index}`;
+    button.innerText = "Mark Done";
+
+    newList.appendChild(newSpan);
+    newList.appendChild(button);
+    button.addEventListener("click", (e) => markCompleted(index));
+
+    list.appendChild(newList);
   });
 }
 
-const remainingButton = document.createElement("button");
-remainingButton.textContent = "Show Remaining";
-remainingButton.addEventListener("click", showRemaining);
-remainingButton.id = "remainingButton";
+//All Section
+function showAllTasks() {
+  list.innerHTML = "";
+  allTasks.forEach((task, index) => {
+    let newList = document.createElement("li");
+    newList.setAttribute("id", `task-${index}`);
 
-const showCompletedButton = document.createElement("button");
-showCompletedButton.textContent = "Show Completed";
-showCompletedButton.addEventListener("click", showCompleted);
-showCompletedButton.id = "showCompletedButton";
+    //task title
+    let newSpan = document.createElement("span");
+    newSpan.id = `task-${index}-title`;
+    newSpan.innerText = task;
+    if (completed.includes(task)) {
+      newSpan.style.textDecoration = "line-through";
+    }
 
-root.appendChild(todoInput);
-root.appendChild(addButton);
-root.appendChild(todoList);
-root.appendChild(remainingButton);
-root.appendChild(showCompletedButton);
+    //button
+    let button = document.createElement("button");
+    button.id = `btn-${index}`;
+    button.innerText = "Mark Done";
+
+    newList.appendChild(newSpan);
+    newList.appendChild(button);
+    button.addEventListener("click", (e) => markCompleted(index));
+
+    list.appendChild(newList);
+  });
+}

@@ -14,29 +14,38 @@ body {
   padding: 20px;
   font-family: Arial, sans-serif;
 }
-
-input[type="text"] {
+label {
+  color: rgb(228, 90, 21);
+  font-weight: bold;
+}
+#task-input {
   width: 70%;
   padding: 8px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
   color: white;
+
   background-color: rgb(107, 101, 101);
 }
-input[type="text"]::placeholder {
-  color: #f4eded;
+#task-input ::placeholder {
+  color: #e0dbdb;
+}
+#division-button {
+  display: flex;
+  margin-top: 20px;
 }
 
 button {
   padding: 8px 15px;
   background-color: rgb(228, 90, 21);
   color: white;
-  padding: 10px;
+  margin-left: 20px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  margin: 0 20px;
+
+  width: auto;
 }
 button:hover {
   transform: scale(1.1);
@@ -56,4 +65,7 @@ span {
 }
 .crossed-out {
   text-decoration: line-through;
+}
+#btn {
+  background-color: green;
 }
