@@ -126,7 +126,7 @@ function showCompletedTasks() {
 //Remaining Section
 function showRemainingTasks() {
   list.innerHTML = "";
-  console.log(remaining);
+
   remaining.forEach((task, index) => {
     let newList = document.createElement("li");
     newList.setAttribute("id", `task-${index}`);
