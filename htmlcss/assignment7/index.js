@@ -14,13 +14,15 @@ canvas.addEventListener("click", (e) => {
   const clickX = e.clientX;
   const clickY = e.clientY;
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 4; i++) {
     const newBall = new Ball(
       clickX,
       clickY,
-      Math.random() * 20 + 1,
-      Math.random() * 25 - 1.5,
-      Math.random() * 25 - 1.5,
+      Math.random() * 20 + 5,
+      // Math.ceil(Math.random() * 5) - 1,
+      // Math.ceil(Math.random() * 5) - 1,
+      Math.random() * 5 - 1.5,
+      Math.random() * 5 - 1.5,
       `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
         Math.random() * 256
       )}, ${Math.floor(Math.random() * 256)})`
@@ -35,6 +37,9 @@ class Ball {
     this.y = y;
     this.size = size;
     this.speedX = speedX;
+    if (this.speedX < 1 && this.speedX > 0) {
+      console.log({ speed: this.speedX });
+    }
     this.speedY = speedY;
     this.color = color;
   }
@@ -43,7 +48,7 @@ class Ball {
     const distance = Math.sqrt(
       (this.x - otherBall.x) ** 2 + (this.y - otherBall.y) ** 2
     );
-    const sumOfRadii = this.size + otherBall.size;
+    const sumOfRadii = (this.size + otherBall.size) ** 2;
 
     if (distance <= sumOfRadii) {
       this.speedX = -this.speedX;
@@ -87,12 +92,11 @@ class Ball {
 // ballcount();
 function handle() {
   for (let i = 0; i < ballArr.length; i++) {
-    ballArr[i].draw();
-    ballArr[i].speedupdate();
-
     for (let j = i + 1; j < ballArr.length; j++) {
       ballArr[i].checkBallCollision(ballArr[j]);
     }
+    ballArr[i].draw();
+    ballArr[i].speedupdate();
   }
 }
 
