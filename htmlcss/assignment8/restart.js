@@ -8,6 +8,7 @@ function restartGame() {
 
   doodler.x = canvasWidth / 2 - doodler.width / 2;
   doodler.y = canvasHeight * (7 / 8) - doodler.height;
+  initialvy = -8;
   vy = initialvy;
 
   generatePlatforms();
