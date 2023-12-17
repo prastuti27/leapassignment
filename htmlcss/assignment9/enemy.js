@@ -1,25 +1,85 @@
 class Enemy {
-  constructor({ position, velocity, distance, width, height }) {
+  constructor({
+    position,
+    velocity,
+    distance,
+    width,
+    height,
+    movementType,
+    coordinatesLeft,
+    coordinatesRight,
+  }) {
     this.position = position;
     this.velocity = velocity;
     this.distance = distance;
     this.width = width;
     this.height = height;
-    this.initialPosition = position.x;
+    this.initialPositionX = position.x;
+    this.initialPositionY = position.y;
     this.objectType = "enemy";
     this.isDead = false;
+    this.movementType = movementType;
+    this.image = new Image();
+    this.image.src = "./assets/blocks.png";
+    this.coordinatesLeft = coordinatesLeft;
+    this.coordinatesRight = coordinatesRight;
+    this.currentCoordinates = coordinatesLeft;
   }
 
   draw() {
-    ctx.fillStyle = "red";
-    ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    // ctx.fillStyle = "red";
+    // ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+
+    ctx.drawImage(
+      this.image,
+      this.currentCoordinates.x,
+      this.currentCoordinates.y,
+      this.currentCoordinates.width,
+      this.currentCoordinates.height,
+      this.position.x,
+      this.position.y,
+      this.width,
+      this.height
+    );
   }
 
   update() {
     this.draw();
 
-    if (Math.abs(this.position.x - this.initialPosition) >= this.distance) {
-      this.velocity.x *= -1;
+    if (this.isDead) {
+      this.velocity.y = 3;
+      ctx.save();
+      ctx.scale(1, -1);
+      ctx.drawImage(
+        this.image,
+        this.currentCoordinates.x,
+        this.currentCoordinates.y,
+        this.currentCoordinates.width,
+        this.currentCoordinates.height,
+        this.position.x,
+        -this.position.y - this.height,
+        this.width,
+        this.height
+      );
+      ctx.restore();
+      this.position.y += this.velocity.y;
+      return;
+    }
+    if (this.movementType === "horizontal") {
+      if (Math.abs(this.position.x - this.initialPositionX) >= this.distance) {
+        this.velocity.x *= -1;
+
+        this.currentCoordinates =
+          this.velocity.x > 0 ? this.coordinatesRight : this.coordinatesLeft;
+      }
+      this.position.x += this.velocity.x;
+    }
+
+    if (this.movementType === "vertical") {
+      if (Math.abs(this.position.y - this.initialPositionY) >= this.distance) {
+        this.velocity.y *= -1;
+      }
+      this.position.y += this.velocity.y;
     }
 
     // this.distance=50, initialpos=160, this.pos=200
@@ -29,9 +89,82 @@ class Enemy {
     // upon next frame pos.x is less than 50or 50 ,its again satisfies if condn and the direction reverses
     // the enemy moves from by 1px
 
-    this.position.x += this.velocity.x;
+    // this.position.x += this.velocity.x;
   }
 }
-function playerIsAboveEnemy(a, b, overlapThreshold = 5, tolerance = 10) {
-  return a.position.y + a.height <= b.position.y - overlapThreshold + tolerance;
+function playerIsAboveEnemy(a, b, tolerance = 10) {
+  return a.position.y + a.height <= b.position.y + tolerance;
 }
+// class CircularEnemy extends Enemy {
+//   constructor({ position, radius, angleSpeed, width, height }) {
+//     super({
+//       position,
+//       velocity: { x: 0, y: 0 },
+//       distance: 0,
+//       width,
+//       height,
+//       movementType: "circular",
+//     });
+//     this.radius = radius;
+//     this.angle = 0;
+//     this.angleSpeed = angleSpeed;
+//   }
+
+//   update() {
+//     this.draw();
+//     if (this.isDead) {
+//       // Logic for dead enemies
+//       return;
+//     }
+
+//     this.angle += (Math.PI / 180) * this.angleSpeed; // Convert degrees to radians
+//     this.position.x =
+//       this.initialPositionX + this.radius * Math.cos(this.angle);
+//     this.position.y =
+//       this.initialPositionY + this.radius * Math.sin(this.angle);
+//   }
+// }
+// class CircularEnemy extends Enemy {
+//   constructor({ position, radius, angleSpeed, width, height }) {
+//     super({
+//       position,
+//       velocity: { x: 0, y: 0 },
+//       distance: 0,
+//       width,
+//       height,
+//       movementType: "circular",
+//       coordinates: {} // Coordinates may need to be specified for circular enemies
+//     });
+//     this.radius = radius;
+//     this.angle = 0;
+//     this.angleSpeed = angleSpeed;
+//   }
+
+//   draw() {
+//     ctx.drawImage(
+//       this.image,
+//       this.coordinates.x, // Adjust according to the circular enemy's image section
+//       this.coordinates.y, // Adjust according to the circular enemy's image section
+//       this.coordinates.width, // Adjust according to the circular enemy's image section
+//       this.coordinates.height, // Adjust according to the circular enemy's image section
+//       this.position.x,
+//       this.position.y,
+//       this.width,
+//       this.height
+//     );
+//   }
+
+//   update() {
+//     this.draw(); // Call the draw method defined in CircularEnemy
+//     if (this.isDead) {
+//       // Logic for dead enemies
+//       return;
+//     }
+
+//     this.angle += (Math.PI / 180) * this.angleSpeed; // Convert degrees to radians
+//     this.position.x =
+//       this.initialPositionX + this.radius * Math.cos(this.angle);
+//     this.position.y =
+//       this.initialPositionY + this.radius * Math.sin(this.angle);
+//   }
+// }

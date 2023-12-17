@@ -13,7 +13,7 @@ function handleMovement(entityList) {
         } else if (keys.ArrowRight) {
           entity.position.x -= 5;
           if (entity.objectType === "enemy") {
-            entity.initialPosition -= 5;
+            entity.initialPositionX -= 5;
           }
         }
       }
