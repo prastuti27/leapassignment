@@ -11,7 +11,7 @@ async function displayNextLevelScreen(ctx) {
   ctx.font = "30px Arial";
   ctx.fillText("Level Completed!", 100, 200);
   ctx.fillText("Next Level Loading...", 70, 250);
-  await wait(5000);
+  await wait(2000);
   console.log("displayd");
 }
 function wait(timeout) {

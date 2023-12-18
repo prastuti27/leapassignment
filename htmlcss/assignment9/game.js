@@ -439,7 +439,7 @@ function game() {
 
               movementType: "horizontal",
               coordinatesLeft: { x: 18, y: 632, width: 86, height: 77 },
-              coordinatesRight: { x: 153, y: 632, width: 91, height: 30 },
+              coordinatesRight: { x: 153, y: 632, width: 91, height: 77 },
             })
           );
 
