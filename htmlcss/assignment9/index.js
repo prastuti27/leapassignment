@@ -86,11 +86,10 @@ const player = new Player(
     x: 100,
     y: 0,
   },
-  50,
   100
 );
 
-let initialLevel = 3;
+let initialLevel = 1;
 let isLevelCompleted = false;
 
 let level = {
