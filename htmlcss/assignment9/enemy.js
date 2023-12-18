@@ -78,6 +78,11 @@ class Enemy {
     if (this.movementType === "vertical") {
       if (Math.abs(this.position.y - this.initialPositionY) >= this.distance) {
         this.velocity.y *= -1;
+        if (this.velocity.x > 0) {
+          this.currentCoordinates = this.coordinatesRight;
+        } else {
+          this.currentCoordinates = this.coordinatesLeft;
+        }
       }
       this.position.y += this.velocity.y;
     }
@@ -117,7 +122,7 @@ function playerIsAboveEnemy(a, b, tolerance = 10) {
 //       return;
 //     }
 
-//     this.angle += (Math.PI / 180) * this.angleSpeed; // Convert degrees to radians
+//     this.angle += (Math.PI / 180) * this.angleSpeed;
 //     this.position.x =
 //       this.initialPositionX + this.radius * Math.cos(this.angle);
 //     this.position.y =
@@ -133,7 +138,7 @@ function playerIsAboveEnemy(a, b, tolerance = 10) {
 //       width,
 //       height,
 //       movementType: "circular",
-//       coordinates: {} // Coordinates may need to be specified for circular enemies
+//       coordinates: {}
 //     });
 //     this.radius = radius;
 //     this.angle = 0;
@@ -143,10 +148,10 @@ function playerIsAboveEnemy(a, b, tolerance = 10) {
 //   draw() {
 //     ctx.drawImage(
 //       this.image,
-//       this.coordinates.x, // Adjust according to the circular enemy's image section
-//       this.coordinates.y, // Adjust according to the circular enemy's image section
-//       this.coordinates.width, // Adjust according to the circular enemy's image section
-//       this.coordinates.height, // Adjust according to the circular enemy's image section
+//       this.coordinates.x,
+//       this.coordinates.y,
+//       this.coordinates.width,
+//       this.coordinates.height,
 //       this.position.x,
 //       this.position.y,
 //       this.width,

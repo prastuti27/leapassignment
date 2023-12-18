@@ -70,52 +70,6 @@ class Player {
   }
 
   draw() {
-    // const movement = this.initialMovement;
-    // const coordinates = this.coordinates[movement];
-
-    // if (this.initialMovement === "death") {
-    //   const deathCoordinates = this.coordinates.death;
-
-    //   if (++this.frameCount % this.animationSpeed === 0) {
-    //     if (this.initialFrame < deathCoordinates.length - 1) {
-    //       this.initialFrame++;
-    //     } else {
-    //       // Once the animation ends, reset the game or perform necessary actions
-    //       this.initialMovement = ""; // Reset the movement to default
-    //       this.initialFrame = 0; // Reset frame count
-    //       // Other actions like resetting the player's position, etc.
-    //     }
-    //   }
-    // }
-
-    // let x, y; // Declare x and y here to use them in a broader scope
-
-    // if (
-    //   coordinates &&
-    //   Array.isArray(coordinates) &&
-    //   coordinates.length > this.initialFrame &&
-    //   Array.isArray(coordinates[this.initialFrame]) &&
-    //   coordinates[this.initialFrame].length >= 2
-    // ) {
-    //   [x, y] = coordinates[this.initialFrame]; // Assign x and y values here
-    //   // ctx.fillStyle = "black";
-    //   // ctx.fillRect(this.position.x, this.position.y, 50, 100);
-    // } else {
-    //   console.log("Invalid coordinates or frame");
-    //   return; // Exit the draw() method if coordinates or frame are invalid
-    // }
-    // ctx.drawImage(
-    //   this.sprites,
-    //   x,
-    //   y,
-    //   55,
-    //   62,
-    //   this.position.x,
-    //   this.position.y,
-    //   this.width * 1.5,
-    //   this.height
-    // );
-
     const movement = this.initialMovement;
     const coordinates = this.coordinates[movement];
 
@@ -124,21 +78,16 @@ class Player {
     if (movement === "death") {
       const deathCoordinates = this.coordinates.death;
 
-      // Check if the current frame count is within the death animation range
       if (this.initialFrame < deathCoordinates.length) {
         [x, y] = deathCoordinates[this.initialFrame];
       } else {
-        // Reset the animation and perform necessary actions when animation ends
-        this.initialMovement = ""; // Reset the movement to default
-        this.initialFrame = 0; // Reset frame count
-        // Other actions like resetting the player's position, etc.
+        this.initialMovement = "";
+        this.initialFrame = 0;
       }
     } else {
-      // Handle other movements (right, left, up, down) based on 'movement'
       [x, y] = coordinates[this.initialFrame];
     }
 
-    // Draw the appropriate frame
     if (x !== undefined && y !== undefined) {
       ctx.drawImage(
         this.sprites,

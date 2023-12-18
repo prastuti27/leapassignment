@@ -10,6 +10,9 @@ function handleMovement(entityList) {
 
         if (keys.ArrowLeft) {
           entity.position.x += 5;
+          if (entity.objectType === "enemy") {
+            entity.initialPositionX += 5;
+          }
         } else if (keys.ArrowRight) {
           entity.position.x -= 5;
           if (entity.objectType === "enemy") {
