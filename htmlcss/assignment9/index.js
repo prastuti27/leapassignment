@@ -90,7 +90,7 @@ const player = new Player(
   100
 );
 
-let initialLevel = 1;
+let initialLevel = 3;
 let isLevelCompleted = false;
 
 let level = {

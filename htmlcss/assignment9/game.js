@@ -23,6 +23,7 @@ const objectMapping = {
   leftDownEdge: 23,
   rightUpEdge: 24,
   rightBlocklvel2: 18,
+  flowerEnemy: 25,
 };
 function game() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -419,6 +420,29 @@ function game() {
               },
             })
           );
+          break;
+        case objectMapping.flowerEnemy:
+          enemies.push(
+            new Enemy({
+              position: {
+                x: 40 * j,
+                y: 40 * i,
+              },
+
+              width: 50,
+              height: 80,
+              distance: 50,
+              velocity: {
+                x: 1,
+                y: 0,
+              },
+
+              movementType: "horizontal",
+              coordinatesLeft: { x: 18, y: 632, width: 86, height: 77 },
+              coordinatesRight: { x: 153, y: 632, width: 91, height: 30 },
+            })
+          );
+
           break;
 
         // case objectMapping.enemy3:
