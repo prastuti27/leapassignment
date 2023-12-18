@@ -60,7 +60,7 @@ async function playBackgroundMusic(level) {
   const musicSources = {
     1: "./assets/level1bgmusic.mp3",
     2: "./assets/level2bgmusic.mp3",
-    3: "./assets/level2bgmusic.mp3",
+    3: "./assets/videoplayback.mp3",
   };
 
   bgMusic.src = musicSources[level];
@@ -86,6 +86,7 @@ const player = new Player(
     x: 100,
     y: 0,
   },
+  50,
   100
 );
 
@@ -297,7 +298,7 @@ async function animate() {
       if (score > localStorage.getItem("highScore")) {
         localStorage.setItem("highScore", score);
       }
-      if (gems >= 5) {
+      if (gems >= 1) {
         isLevelCompleted = true;
         // if (isLevelCompleted) {
         //   initialLevel++;

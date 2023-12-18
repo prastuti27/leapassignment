@@ -70,6 +70,7 @@ class Player {
   }
 
   draw() {
+    console.log(this);
     const movement = this.initialMovement;
     const coordinates = this.coordinates[movement];
 
