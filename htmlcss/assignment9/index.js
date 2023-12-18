@@ -298,7 +298,7 @@ async function animate() {
       if (score > localStorage.getItem("highScore")) {
         localStorage.setItem("highScore", score);
       }
-      if (gems >= 1) {
+      if (gems >= 5) {
         isLevelCompleted = true;
         // if (isLevelCompleted) {
         //   initialLevel++;
