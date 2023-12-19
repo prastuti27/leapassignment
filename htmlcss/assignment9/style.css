@@ -6,6 +6,11 @@ body {
   justify-content: center;
   align-items: center;
 }
+.game_background {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+}
 /* #menu {
   position: absolute;
   top: 50%;

@@ -1,6 +1,10 @@
 class Player {
   constructor(position, width, height) {
     this.position = position;
+    this.previousPosition = {
+      x: this.position.x,
+      y: this.position.y,
+    };
     this.velocity = {
       x: 0,
       y: 1,
@@ -70,7 +74,6 @@ class Player {
   }
 
   draw() {
-    console.log(this);
     const movement = this.initialMovement;
     const coordinates = this.coordinates[movement];
 

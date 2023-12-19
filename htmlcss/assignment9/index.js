@@ -172,7 +172,10 @@ async function animate() {
 
             console.log(enemy.isDead);
           } else {
+            // player.isDead = true;
+
             life -= 1;
+
             playDeathSound();
             player.position.x -= 200;
 
@@ -182,9 +185,37 @@ async function animate() {
           }
         }
       });
+
       for (let i = 0; i < blocks.length; i++) {
         if (blocks[i]) {
           if (detectCollision(player, blocks[i])) {
+            // if (
+            //   player.y < blocks[i].y + blocks[i].height &&
+            //   player.previousPosition.y >= blocks[i].y + blocks[i].height
+            // ) {
+            //   player.y = blocks[i].y + blocks[i].height;
+            //   collidedBottom = true;
+            //   player.velocity.y = 0;
+            // } else if (
+            //   player.y + player.height >= blocks[i].y &&
+            //   plas.y + player.height <= blocks[i].y
+            // ) {
+            //   player.y = blocks[i].y - player.height;
+            //   player.isGrounded = true;
+            //   collidedTop = true;
+            // } else if (
+            //   player.x < blocks[i].x + blocks[i].width &&
+            //   player.previousPosition.x >= blocks[i].x + blocks[i].width
+            // ) {
+            //   player.x = blocks[i].x + blocks[i].width;
+            //   player.velocity.x = 0;
+            // } else if (
+            //   player.x + player.width > blocks[i].x &&
+            //   player.previousPosition.x + player.width <= blocks[i].x
+            // ) {
+            //   player.x = blocks[i].x - player.width;
+            //   player.velocity.x = 0;
+            // }
             const overlapX =
               player.position.x +
               player.width / 2 -
@@ -195,18 +226,15 @@ async function animate() {
               player.height / 2 -
               blocks[i].position.y -
               blocks[i].height / 2;
-
             const combinedHalfWidths = player.width / 2 + blocks[i].width / 2;
             const combinedHalfHeights =
               player.height / 2 + blocks[i].height / 2;
-
             if (
               Math.abs(overlapX) < combinedHalfWidths &&
               Math.abs(overlapY) < combinedHalfHeights
             ) {
               const overlapWidth = combinedHalfWidths - Math.abs(overlapX);
               const overlapHeight = combinedHalfHeights - Math.abs(overlapY);
-
               if (overlapWidth >= overlapHeight) {
                 if (overlapY > 0) {
                   player.position.y += overlapHeight;
@@ -308,12 +336,25 @@ async function animate() {
         //   game();
         // }
         // }
+        // if (isLevelCompleted) {
+        //   console.log("if await working");
+        //   bgMusic.pause();
+        //   initialLevel++;
+
+        //   displayNextLevelScreen(ctx);
+        //   isLevelCompleted = false;
+        //   backgroundImage.src = levelBackground[initialLevel];
+        //   game();
+        //   bgMusic.play();
+
+        //   console.log(initialLevel);
+        //   gems = 0;
+        // }
         if (isLevelCompleted) {
+          await displayNextLevelScreen(ctx); // Wait for the displayNextLevelScreen to complete
           console.log("if await working");
           bgMusic.pause();
           initialLevel++;
-
-          await displayNextLevelScreen(ctx);
           isLevelCompleted = false;
           backgroundImage.src = levelBackground[initialLevel];
           game();
