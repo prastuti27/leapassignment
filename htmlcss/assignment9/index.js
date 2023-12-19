@@ -172,7 +172,7 @@ async function animate() {
 
             console.log(enemy.isDead);
           } else {
-            // player.isDead = true;
+            player.isDead = true;
 
             life -= 1;
 

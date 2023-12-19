@@ -1,7 +1,7 @@
 function handleMovement(entityList) {
   entityList.forEach((entity) => {
     if (entity) {
-      if (keys.ArrowLeft && player.position.x > 0) {
+      if (keys.ArrowLeft && player.position.x > 200) {
         player.velocity.x = -5;
       } else if (keys.ArrowRight && player.position.x < canvas.width / 2) {
         player.velocity.x = 5;
