@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div>
+      <div id="header">
+        <h1>todo app</h1>
+        <div id="division-button">
+          <input id="search-input" placeholder="Search tasks..." />
+          <button id="search-button">Search</button>
+          <button id="remaining-button">Remaining Tasks</button>
+          <button id="completed-button">Completed Tasks</button>
+          <button id="all-button">All Tasks</button>
+        </div>
+        <label for="task-input">Task Title</label>
+        <input
+          id="task-input"
+          name="task=input"
+          placeholder="Enter your task"
+        />
+        <button id="add-button">Add</button>
+      </div>
+
+      <div id="container">
+        <ul id="task-list"></ul>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
