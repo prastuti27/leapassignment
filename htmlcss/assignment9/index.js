@@ -3,7 +3,7 @@ let gameOver = false;
 let score = 0;
 let gems = 0;
 let life = 3;
-let levelFail = false;
+// let levelFail = false;
 let gameStarted = false;
 const jumpSound = new Audio("./assets/jump.mp3");
 const deathSound = new Audio("./assets/dead.mp3");
@@ -29,30 +29,17 @@ function drawStartButton() {
   ctx.fillText("Start Game", 130, 135);
 }
 const bgMusic = new Audio("./assets/level1bgmusic.mp3");
-async function startGame() {
+function startGame() {
   bgMusic.volume = 0.5;
   bgMusic.loop = true;
-  try {
-    await bgMusic.play();
-  } catch (error) {
-    console.error("Audio playback failed:", error);
-  }
+
+  bgMusic.play();
 
   gameStarted = true;
 }
 
 canvas.addEventListener("click", function (event) {
-  const rect = canvas.getBoundingClientRect();
-  const mouseX = event.clientX - rect.left;
-  const mouseY = event.clientY - rect.top;
-
-  if (
-    mouseX >= 100 &&
-    mouseX <= 300 &&
-    mouseY >= 100 &&
-    mouseY <= 150 &&
-    !gameStarted
-  ) {
+  if (!gameStarted) {
     startGame();
   }
 });
@@ -111,7 +98,7 @@ let collectlife = [];
 let enemies = [];
 
 game();
-async function animate() {
+function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   if (!gameStarted) {
     drawStartButton();
@@ -164,13 +151,11 @@ async function animate() {
       });
       enemies.forEach((enemy) => {
         enemy.update();
-        // console.log(enemy);
+
         if (!enemy.isDead && detectCoinCollision(player, enemy)) {
           if (playerIsAboveEnemy(player, enemy)) {
             enemy.isDead = true;
             playerJump();
-
-            console.log(enemy.isDead);
           } else {
             player.isDead = true;
 
@@ -181,7 +166,6 @@ async function animate() {
 
             player.initialMovement = "death";
             player.frameCount = 0;
-            levelFail = true;
           }
         }
       });
@@ -189,33 +173,6 @@ async function animate() {
       for (let i = 0; i < blocks.length; i++) {
         if (blocks[i]) {
           if (detectCollision(player, blocks[i])) {
-            // if (
-            //   player.y < blocks[i].y + blocks[i].height &&
-            //   player.previousPosition.y >= blocks[i].y + blocks[i].height
-            // ) {
-            //   player.y = blocks[i].y + blocks[i].height;
-            //   collidedBottom = true;
-            //   player.velocity.y = 0;
-            // } else if (
-            //   player.y + player.height >= blocks[i].y &&
-            //   plas.y + player.height <= blocks[i].y
-            // ) {
-            //   player.y = blocks[i].y - player.height;
-            //   player.isGrounded = true;
-            //   collidedTop = true;
-            // } else if (
-            //   player.x < blocks[i].x + blocks[i].width &&
-            //   player.previousPosition.x >= blocks[i].x + blocks[i].width
-            // ) {
-            //   player.x = blocks[i].x + blocks[i].width;
-            //   player.velocity.x = 0;
-            // } else if (
-            //   player.x + player.width > blocks[i].x &&
-            //   player.previousPosition.x + player.width <= blocks[i].x
-            // ) {
-            //   player.x = blocks[i].x - player.width;
-            //   player.velocity.x = 0;
-            // }
             const overlapX =
               player.position.x +
               player.width / 2 -
@@ -289,7 +246,6 @@ async function animate() {
         }
       }
 
-      // Check for game-over condition
       if (life <= 0) {
         gameOver = true;
         playGameOverSound();
@@ -328,30 +284,9 @@ async function animate() {
       }
       if (gems >= 5) {
         isLevelCompleted = true;
-        // if (isLevelCompleted) {
-        //   initialLevel++;
-        //   gems = 0;
-        //   backgroundImage.src = levelBackground[initialLevel];
 
-        //   game();
-        // }
-        // }
-        // if (isLevelCompleted) {
-        //   console.log("if await working");
-        //   bgMusic.pause();
-        //   initialLevel++;
-
-        //   displayNextLevelScreen(ctx);
-        //   isLevelCompleted = false;
-        //   backgroundImage.src = levelBackground[initialLevel];
-        //   game();
-        //   bgMusic.play();
-
-        //   console.log(initialLevel);
-        //   gems = 0;
-        // }
         if (isLevelCompleted) {
-          await displayNextLevelScreen(ctx); // Wait for the displayNextLevelScreen to complete
+          displayNextLevelScreen(ctx); // Wait for the displayNextLevelScreen to complete
           console.log("if await working");
           bgMusic.pause();
           initialLevel++;
