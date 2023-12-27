@@ -1,0 +1,8 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "Shippers" (
+	"ShipperID"	INTEGER,
+	"ShipperName"	TEXT,
+	"Phone"	TEXT,
+	PRIMARY KEY("ShipperID")
+);
+COMMIT;
