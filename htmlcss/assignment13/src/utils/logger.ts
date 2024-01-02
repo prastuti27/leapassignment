@@ -1,10 +1,15 @@
 import winston, { format } from "winston";
+const logFormat = format.printf((info) => {
+  const formattedNamespace = info.metadata.namespace || "";
+
+  return `${info.timestamp} [${info.level}] [${formattedNamespace}]: ${info.message}`;
+});
+
 const logger = winston.createLogger({
   format: format.combine(
     winston.format.timestamp(),
-    winston.format.printf(
-      (info) => `${info.timestamp} ${info.level}: ${info.message}`
-    )
+    format.metadata({ fillExcept: ["message", "level", "timestamp"] }),
+    logFormat
   ),
 
   transports: [
@@ -15,5 +20,34 @@ const logger = winston.createLogger({
     new winston.transports.File({ filename: "logs/app.log" }),
   ],
 });
+const loggerWithNameSpace = function (namespace: string) {
+  return logger.child({ namespace });
+};
+export default loggerWithNameSpace;
 
-export default logger;
+// import winston, { format } from "winston";
+
+// const logFormat = format.printf((info) => {
+//   const formattedNamespace = info.metadata.namespace || "";
+
+//   return `${info.timestamp} [${info.level}] [${formattedNamespace}]: ${info.message}`;
+// });
+
+// const logger = winston.createLogger({
+//   format: format.combine(
+//     format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
+//     format.metadata({ fillExcept: ["message", "level", "timestamp"] }),
+//     logFormat
+//   ),
+//   transports: [
+//     new winston.transports.Console({
+//       format: format.combine(format.colorize()),
+//       level: "info",
+//     }),
+//   ],
+// });
+// const loggerWithNameSpace = function (namespace: string) {
+//   return logger.child({ namespace });
+// };
+
+// export default loggerWithNameSpace;

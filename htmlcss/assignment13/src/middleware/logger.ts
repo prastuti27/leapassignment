@@ -1,10 +1,14 @@
 import { Request, Response, NextFunction } from "express";
-import logger from "../utils/logger";
-export const requestLogger = (
+import loggerWithNameSpace from "../utils/logger";
+
+const loggerFn = loggerWithNameSpace("Logger");
+
+export const logger = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  logger.info(`${req.method} ${req.originalUrl}`);
+  loggerFn.info(`${req.method}: ${req.path}`);
+
   next();
 };
