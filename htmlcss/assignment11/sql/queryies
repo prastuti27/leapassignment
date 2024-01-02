@@ -1,0 +1,8 @@
+UPDATE Orders
+SET OrderDate = 'relevant_date'
+
+SELECT * from Orders
+WHERE OrderDate > current_date
+
+update Suppliers
+ set country = 'Canada' where country= 'Kanada' 
