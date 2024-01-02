@@ -10,4 +10,6 @@ app.use(router);
 //   res.json({ message: config.PORT });
 // });
 
-app.listen(config.PORT);
+app.listen(config.PORT, () => {
+  console.log("server started!");
+});
