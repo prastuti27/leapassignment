@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.ts",
-    "knex": "knex --knexfile=src/utils/knexFile.ts",
+    "knex": "knex --knexfile=src/knexFile.ts",
     "make:migration": "knex --knexfile=src/knexFile.ts migrate:make -x ts --env development",
     "migrate": "knex --knexfile=src/knexFile.ts migrate:latest --verbose",
     "rollback": "knex --knexfile=src/knexFile.ts migrate:rollback --verbose",
