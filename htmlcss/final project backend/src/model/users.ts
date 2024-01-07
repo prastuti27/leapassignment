@@ -1,5 +1,5 @@
 interface User {
-  id: number;
+  id: string;
   firstname: string;
   lastname: string;
   email: string;
@@ -8,14 +8,14 @@ interface User {
 
 const users: User[] = [
   {
-    id: 1,
+    id: "1",
     firstname: "user1",
     lastname: "1user",
     email: "user1@user.com",
     password: "hashedPassword1",
   },
   {
-    id: 2,
+    id: "2",
     firstname: "user2",
     lastname: "2user",
     email: "user1@user.com",

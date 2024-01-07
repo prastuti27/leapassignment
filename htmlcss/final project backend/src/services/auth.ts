@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import users from "../model/users";
 import jwt from "jsonwebtoken";
+import { v4 as uuidv4 } from "uuid"; // Import uuid library
 import { ACCESS_TOKEN_EXPIRY, REFRESH_TOKEN_EXPIRY } from "../constant/jwt";
 import config from "../config";
 
@@ -12,7 +13,7 @@ export const register = async (
 ) => {
   const hashedpass = await bcrypt.hash(password, 10);
   const user = {
-    id: users.length + 1,
+    id: uuidv4(), // Generate UUID for id
     firstname,
     lastname,
     email,
